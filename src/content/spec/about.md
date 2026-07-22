@@ -1,9 +1,7 @@
-# About
-This is the demo site for [Fuwari](https://github.com/saicaca/fuwari).
+# 소개
 
-::github{repo="saicaca/fuwari"}
+lacroix03의 GitHub 블로그입니다.
 
-> ### Sources of images used in this site
-> - [Unsplash](https://unsplash.com/)
-> - [星と少女](https://www.pixiv.net/artworks/108916539) by [Stella](https://www.pixiv.net/users/93273965)
-> - [Rabbit - v1.4 Showcase](https://civitai.com/posts/586908) by [Rabbit_YourMajesty](https://civitai.com/user/Rabbit_YourMajesty)
+개발 기록, 공부한 내용, 프로젝트 작업 로그를 정리하는 공간으로 운영합니다.
+
+영어 소개 페이지는 [English](/en/about/)에서 볼 수 있습니다.

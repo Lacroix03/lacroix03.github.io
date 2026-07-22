@@ -1,0 +1,32 @@
+---
+import { url } from "../utils/url-utils";
+
+type LanguageLink = {
+	label: string;
+	href: string;
+	current?: boolean;
+};
+
+interface Props {
+	links: LanguageLink[];
+}
+
+const { links } = Astro.props;
+---
+
+<nav aria-label="Language switcher" class="mb-5 flex flex-wrap gap-2">
+	{links.map((link) => (
+		<a
+			href={url(link.href)}
+			aria-current={link.current ? "page" : undefined}
+			class:list={[
+				"rounded-lg px-3 py-1.5 text-sm font-bold transition",
+				link.current
+					? "bg-[var(--primary)] text-white"
+					: "btn-regular",
+			]}
+		>
+			{link.label}
+		</a>
+	))}
+</nav>

@@ -1,7 +1,8 @@
 ---
 import { Icon } from "astro-icon/components";
 import { navBarConfig, siteConfig } from "../config";
-import { LinkPresets } from "../constants/link-presets";
+import I18nKey from "../i18n/i18nKey";
+import { getTranslation } from "../i18n/translation";
 import { LinkPreset, type NavBarLink } from "../types/config";
 import { url } from "../utils/url-utils";
 import LightDarkSwitch from "./LightDarkSwitch.svelte";
@@ -9,12 +10,40 @@ import Search from "./Search.svelte";
 import DisplaySettings from "./widget/DisplaySettings.svelte";
 import NavMenuPanel from "./widget/NavMenuPanel.astro";
 
+interface Props {
+	class?: string;
+	lang?: string;
+}
+
+const { lang = siteConfig.lang } = Astro.props;
 const className = Astro.props.class;
+const translation = getTranslation(lang);
+const isEnglishPage = lang.toLowerCase().startsWith("en");
+const linkPresets: { [key in LinkPreset]: NavBarLink } = {
+	[LinkPreset.Home]: {
+		name: translation[I18nKey.home],
+		url: "/",
+	},
+	[LinkPreset.Archive]: {
+		name: translation[I18nKey.archive],
+		url: "/archive/",
+	},
+	[LinkPreset.About]: {
+		name: translation[I18nKey.about],
+		url: isEnglishPage ? "/en/about/" : "/about/",
+	},
+};
 
 let links: NavBarLink[] = navBarConfig.links.map(
 	(item: NavBarLink | LinkPreset): NavBarLink => {
 		if (typeof item === "number") {
-			return LinkPresets[item];
+			return linkPresets[item];
+		}
+		if (item.url === "/en/about/" && isEnglishPage) {
+			return {
+				name: "한국어",
+				url: "/about/",
+			};
 		}
 		return item;
 	},
