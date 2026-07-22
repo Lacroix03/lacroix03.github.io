@@ -1,7 +1,6 @@
 ---
 
 import { getEntry, render } from "astro:content";
-import LanguageSwitcher from "@components/LanguageSwitcher.astro";
 import Markdown from "@components/misc/Markdown.astro";
 import MainGridLayout from "../layouts/MainGridLayout.astro";
 
@@ -17,12 +16,6 @@ const { Content } = await render(aboutPost);
 <MainGridLayout title="소개" description="lacroix03 소개" lang="ko">
     <div class="flex w-full rounded-[var(--radius-large)] overflow-hidden relative min-h-32">
         <div class="card-base z-10 px-9 py-6 relative w-full ">
-            <LanguageSwitcher
-                links={[
-                    { label: "한국어", href: "/about/", current: true },
-                    { label: "English", href: "/en/about/" },
-                ]}
-            />
             <Markdown class="mt-2">
                 <Content />
             </Markdown>

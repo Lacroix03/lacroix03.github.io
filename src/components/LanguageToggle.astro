@@ -1,0 +1,36 @@
+---
+import { Icon } from "astro-icon/components";
+import {
+	getLanguageSwitchPath,
+	normalizePageLang,
+} from "../utils/language-utils";
+import { url } from "../utils/url-utils";
+
+interface Props {
+	lang?: string;
+}
+
+const currentLang = normalizePageLang(Astro.props.lang);
+const targetLang = currentLang === "en" ? "ko" : "en";
+const label = targetLang === "en" ? "EN" : "한";
+const title = targetLang === "en" ? "Switch to English" : "한국어로 전환";
+const href = url(
+	getLanguageSwitchPath(Astro.url.pathname, Astro.url.search, targetLang),
+);
+---
+
+<a
+	href={href}
+	aria-label={title}
+	title={title}
+	class="btn-plain scale-animation rounded-lg h-11 w-11 active:scale-90"
+>
+	<div class="relative flex h-full w-full items-center justify-center">
+		<Icon name="material-symbols:translate-rounded" class="text-[1.25rem]" />
+		<span
+			class="absolute bottom-1 right-1 rounded bg-[var(--primary)] px-1 text-[0.625rem] font-bold leading-3 text-white"
+		>
+			{label}
+		</span>
+	</div>
+</a>

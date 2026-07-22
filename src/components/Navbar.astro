@@ -4,7 +4,9 @@ import { navBarConfig, siteConfig } from "../config";
 import I18nKey from "../i18n/i18nKey";
 import { getTranslation } from "../i18n/translation";
 import { LinkPreset, type NavBarLink } from "../types/config";
+import { getLocalizedPath, normalizePageLang } from "../utils/language-utils";
 import { url } from "../utils/url-utils";
+import LanguageToggle from "./LanguageToggle.astro";
 import LightDarkSwitch from "./LightDarkSwitch.svelte";
 import Search from "./Search.svelte";
 import DisplaySettings from "./widget/DisplaySettings.svelte";
@@ -18,19 +20,19 @@ interface Props {
 const { lang = siteConfig.lang } = Astro.props;
 const className = Astro.props.class;
 const translation = getTranslation(lang);
-const isEnglishPage = lang.toLowerCase().startsWith("en");
+const pageLang = normalizePageLang(lang);
 const linkPresets: { [key in LinkPreset]: NavBarLink } = {
 	[LinkPreset.Home]: {
 		name: translation[I18nKey.home],
-		url: "/",
+		url: getLocalizedPath("/", pageLang),
 	},
 	[LinkPreset.Archive]: {
 		name: translation[I18nKey.archive],
-		url: "/archive/",
+		url: getLocalizedPath("/archive/", pageLang),
 	},
 	[LinkPreset.About]: {
 		name: translation[I18nKey.about],
-		url: isEnglishPage ? "/en/about/" : "/about/",
+		url: getLocalizedPath("/about/", pageLang),
 	},
 };
 
@@ -38,12 +40,6 @@ let links: NavBarLink[] = navBarConfig.links.map(
 	(item: NavBarLink | LinkPreset): NavBarLink => {
 		if (typeof item === "number") {
 			return linkPresets[item];
-		}
-		if (item.url === "/en/about/" && isEnglishPage) {
-			return {
-				name: "한국어",
-				url: "/about/",
-			};
 		}
 		return item;
 	},
@@ -54,7 +50,7 @@ let links: NavBarLink[] = navBarConfig.links.map(
     <div class:list={[
         className,
         "card-base !overflow-visible max-w-[var(--page-width)] h-[4.5rem] !rounded-t-none mx-auto flex items-center justify-between px-4"]}>
-        <a href={url('/')} class="btn-plain scale-animation rounded-lg h-[3.25rem] px-5 font-bold active:scale-95">
+        <a href={url(getLocalizedPath('/', pageLang))} class="btn-plain scale-animation rounded-lg h-[3.25rem] px-5 font-bold active:scale-95">
             <div class="flex flex-row text-[var(--primary)] items-center text-md">
                 <Icon name="material-symbols:home-outline-rounded" class="text-[1.75rem] mb-1 mr-2" />
                 {siteConfig.title}
@@ -74,19 +70,20 @@ let links: NavBarLink[] = navBarConfig.links.map(
         </div>
         <div class="flex">
             <!--<SearchPanel client:load>-->
-            <Search client:only="svelte"></Search>
+            <Search client:only="svelte" lang={pageLang}></Search>
+            <LanguageToggle lang={pageLang}></LanguageToggle>
             {!siteConfig.themeColor.fixed && (
                     <button aria-label="Display Settings" class="btn-plain scale-animation rounded-lg h-11 w-11 active:scale-90" id="display-settings-switch">
                         <Icon name="material-symbols:palette-outline" class="text-[1.25rem]"></Icon>
                     </button>
             )}
-            <LightDarkSwitch client:only="svelte"></LightDarkSwitch>
+            <LightDarkSwitch client:only="svelte" lang={pageLang}></LightDarkSwitch>
             <button aria-label="Menu" name="Nav Menu" class="btn-plain scale-animation rounded-lg w-11 h-11 active:scale-90 md:!hidden" id="nav-menu-switch">
                 <Icon name="material-symbols:menu-rounded" class="text-[1.25rem]"></Icon>
             </button>
         </div>
         <NavMenuPanel links={links}></NavMenuPanel>
-        <DisplaySettings client:only="svelte"></DisplaySettings>
+        <DisplaySettings client:only="svelte" lang={pageLang}></DisplaySettings>
     </div>
 </div>
 

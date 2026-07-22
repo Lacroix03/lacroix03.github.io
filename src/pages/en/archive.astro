@@ -3,14 +3,17 @@ import ArchivePanel from "@components/ArchivePanel.svelte";
 import I18nKey from "@i18n/i18nKey";
 import { getTranslation } from "@i18n/translation";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
-import { getSortedPostsList } from "../utils/content-utils";
+import { getSortedPostsList } from "@utils/content-utils";
 
-const lang = "ko";
+const lang = "en";
 const translation = getTranslation(lang);
 const sortedPostsList = await getSortedPostsList(lang);
 ---
 
 <MainGridLayout title={translation[I18nKey.archive]} lang={lang}>
-    <ArchivePanel sortedPosts={sortedPostsList} client:only="svelte" lang={lang}></ArchivePanel>
+	<ArchivePanel
+		sortedPosts={sortedPostsList}
+		client:only="svelte"
+		lang={lang}
+	></ArchivePanel>
 </MainGridLayout>
-
