@@ -94,11 +94,10 @@ export type Category = {
 	url: string;
 };
 
-export async function getCategoryList(
-	lang = siteConfig.lang,
-): Promise<Category[]> {
-	const translation = getTranslation(lang);
-	const allBlogPosts = await getRawSortedPosts(lang);
+export async function getCategoryList(lang?: string): Promise<Category[]> {
+	const pageLang = lang || siteConfig.lang;
+	const translation = getTranslation(pageLang);
+	const allBlogPosts = await getRawSortedPosts(pageLang);
 	const count: { [key: string]: number } = {};
 	allBlogPosts.forEach((post: { data: { category: string | null } }) => {
 		if (!post.data.category) {
@@ -124,7 +123,7 @@ export async function getCategoryList(
 		ret.push({
 			name: c,
 			count: count[c],
-			url: getCategoryUrl(c, lang),
+			url: getCategoryUrl(c, pageLang),
 		});
 	}
 	return ret;

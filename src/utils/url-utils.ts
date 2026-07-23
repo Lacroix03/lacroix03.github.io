@@ -14,22 +14,19 @@ function joinUrl(...parts: string[]): string {
 	return joined.replace(/\/+/g, "/");
 }
 
-export function getPostUrlBySlug(slug: string, lang = siteConfig.lang): string {
+export function getPostUrlBySlug(slug: string, lang?: string): string {
 	return url(getLocalizedPath(`/posts/${slug}/`, lang));
 }
 
-export function getTagUrl(tag: string, lang = siteConfig.lang): string {
+export function getTagUrl(tag: string, lang?: string): string {
 	const archivePath = getLocalizedPath("/archive/", lang);
 	if (!tag) return url(archivePath);
 	return url(`${archivePath}?tag=${encodeURIComponent(tag.trim())}`);
 }
 
-export function getCategoryUrl(
-	category: string | null,
-	lang = siteConfig.lang,
-): string {
+export function getCategoryUrl(category: string | null, lang?: string): string {
 	const archivePath = getLocalizedPath("/archive/", lang);
-	const translation = getTranslation(lang);
+	const translation = getTranslation(lang || siteConfig.lang);
 	if (
 		!category ||
 		category.trim() === "" ||
