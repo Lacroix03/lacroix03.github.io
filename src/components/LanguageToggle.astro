@@ -23,14 +23,89 @@ const href = url(
 	href={href}
 	aria-label={title}
 	title={title}
+	data-language-toggle
 	class="btn-plain scale-animation rounded-lg h-11 w-11 active:scale-90"
 >
 	<div class="relative flex h-full w-full items-center justify-center">
 		<Icon name="material-symbols:translate-rounded" class="text-[1.25rem]" />
 		<span
+			data-language-toggle-label
 			class="absolute bottom-1 right-1 rounded bg-[var(--primary)] px-1 text-[0.625rem] font-bold leading-3 text-white"
 		>
 			{label}
 		</span>
 	</div>
 </a>
+
+<script>
+	function getLanguageSwitchTarget(pathname: string, search: string, hash: string) {
+		const normalizedPath = pathname.startsWith("/") ? pathname : `/${pathname}`;
+		const isEnglishPage =
+			normalizedPath === "/en" || normalizedPath.startsWith("/en/");
+		const targetLang = isEnglishPage ? "ko" : "en";
+		const pathWithoutEnglishPrefix =
+			normalizedPath === "/en"
+				? "/"
+				: normalizedPath.startsWith("/en/")
+					? normalizedPath.slice(3) || "/"
+					: normalizedPath;
+
+		const targetPath =
+			targetLang === "en"
+				? pathWithoutEnglishPrefix === "/"
+					? "/en/"
+					: `/en${pathWithoutEnglishPrefix}`
+				: pathWithoutEnglishPrefix;
+
+		return {
+			href: `${targetPath}${search}${hash}`,
+			label: targetLang === "en" ? "EN" : "한",
+			title: targetLang === "en" ? "Switch to English" : "한국어로 전환",
+		};
+	}
+
+	function updateLanguageToggles() {
+		const target = getLanguageSwitchTarget(
+			window.location.pathname,
+			window.location.search,
+			window.location.hash,
+		);
+
+		document
+			.querySelectorAll<HTMLAnchorElement>("[data-language-toggle]")
+			.forEach((toggle) => {
+				toggle.href = target.href;
+				toggle.title = target.title;
+				toggle.setAttribute("aria-label", target.title);
+				const label = toggle.querySelector<HTMLElement>(
+					"[data-language-toggle-label]",
+				);
+				if (label) {
+					label.textContent = target.label;
+				}
+			});
+	}
+
+	function setupLanguageToggleUpdater() {
+		updateLanguageToggles();
+
+		const languageToggleWindow = window as Window &
+			typeof globalThis & {
+				__languageToggleHooked?: boolean;
+			};
+
+		if (
+			languageToggleWindow.swup?.hooks &&
+			!languageToggleWindow.__languageToggleHooked
+		) {
+			languageToggleWindow.__languageToggleHooked = true;
+			languageToggleWindow.swup.hooks.on("page:view", updateLanguageToggles);
+			languageToggleWindow.swup.hooks.on("visit:end", updateLanguageToggles);
+		}
+	}
+
+	setupLanguageToggleUpdater();
+	document.addEventListener("DOMContentLoaded", updateLanguageToggles);
+	document.addEventListener("swup:enable", setupLanguageToggleUpdater);
+	window.addEventListener("popstate", updateLanguageToggles);
+</script>
