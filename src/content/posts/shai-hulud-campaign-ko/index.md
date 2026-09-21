@@ -11,8 +11,6 @@ translationKey: "shai-hulud-campaign"
 draft: false
 ---
 
-![npm 공급망 공격: Shai-Hulud 캠페인](/posts/shai-hulud-campaign/cover.png)
-
 안녕하세요. 굉장히 오랜만에 블로그 포스팅입니다!
 
 요즘 학교 캡스톤 프로젝트로 npm 공급망 공격을 막기 위한 파이프라인을 만들고 있는데요, 저는 OpenSSF에서 수집한 악성 패키지 정보를 가지고 데이터를 분석하는 역할을 맡았습니다. 분석 도중에 좀 흥미로운 캠페인이 있어서, 블로그 포스팅 주제로 가져왔습니다.

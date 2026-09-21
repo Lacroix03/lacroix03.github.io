@@ -11,8 +11,6 @@ translationKey: "shai-hulud-campaign"
 draft: false
 ---
 
-![npm supply chain attacks: the Shai-Hulud campaign](/posts/shai-hulud-campaign/cover.png)
-
 Hello! It has been quite a while since my last blog post.
 
 For my university capstone project, I have been working on a pipeline to prevent npm supply chain attacks. My role is to analyze malicious package information collected from OpenSSF. During that analysis, I came across a particularly interesting campaign that I wanted to write about here.
@@ -74,11 +72,11 @@ I plan to examine the implementation in detail in a future post. For now, I will
 
 ## The Shai-Hulud campaign timeline
 
-![Shai-Hulud campaign timeline](/posts/shai-hulud-campaign/timeline.png?v=2)
+![Shai-Hulud campaign timeline](/posts/shai-hulud-campaign/en/timeline.png)
 
 ### 📍 The emergence of the Shai-Hulud worm — September 2025
 
-![The original Shai-Hulud worm in September 2025](/posts/shai-hulud-campaign/original-wave.png?v=2)
+![The original Shai-Hulud worm in September 2025](/posts/shai-hulud-campaign/en/original-wave.png)
 
 Shai-Hulud is a **self-propagating attack** discovered in the npm registry.
 
@@ -172,7 +170,7 @@ After obtaining a valid npm token, the worm found other packages that the accoun
 
 ### 📍 Sha1-Hulud: The Second Coming — November 2025
 
-![The Second Coming in November 2025](/posts/shai-hulud-campaign/second-coming.png)
+![The Second Coming in November 2025](/posts/shai-hulud-campaign/en/second-coming.png)
 
 About two months after the initial campaign subsided, another variant appeared.
 
@@ -201,7 +199,7 @@ The Second Coming expanded the original campaign with stronger stealth, persiste
 
 ### 📍 Mini Shai-Hulud — April–May 2026
 
-![Mini Shai-Hulud in 2026](/posts/shai-hulud-campaign/mini-shai-hulud.png)
+![Mini Shai-Hulud in 2026](/posts/shai-hulud-campaign/en/mini-shai-hulud.png)
 
 In 2026, attacks affected npm packages associated with the SAP development ecosystem.
 
