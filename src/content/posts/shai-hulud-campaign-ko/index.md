@@ -75,15 +75,11 @@ Shai-Hulud의 구체적인 동작 방식은 다음 포스팅에서 자세히 살
 
 ## Shai-Hulud 캠페인의 타임라인
 
-![Shai-Hulud 캠페인 타임라인](/posts/shai-hulud-campaign/timeline.png)
-
-> 이미지의 날짜 정정: 최초 웨이브는 2024년 9월이 아닌 **2025년 9월**, Mini Shai-Hulud는 2026년 8월이 아닌 **2026년 4~5월**입니다. 2026년 8월 캠페인은 아래의 **Here We Go Again**에 해당합니다. 이미지의 연대 표기보다 본문의 타임라인을 기준으로 읽어주세요.
+![Shai-Hulud 캠페인 타임라인](/posts/shai-hulud-campaign/timeline.png?v=2)
 
 ### 📍Shai-Hulud Worm의 등장 - 2025년 9월
 
-![2025년 9월 최초 Shai-Hulud 웜](/posts/shai-hulud-campaign/original-wave.png)
-
-*이미지의 “Sep 2024”는 “Sep 2025”로 정정합니다.*
+![2025년 9월 최초 Shai-Hulud 웜](/posts/shai-hulud-campaign/original-wave.png?v=2)
 
 Shai-Hulud는 npm registry에서 발견된 **자기전파형(Self-propagating) 공격**입니다.
 

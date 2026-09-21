@@ -74,15 +74,11 @@ I plan to examine the implementation in detail in a future post. For now, I will
 
 ## The Shai-Hulud campaign timeline
 
-![Shai-Hulud campaign timeline](/posts/shai-hulud-campaign/timeline.png)
-
-> The original diagrams retain their Korean labels. Date corrections: the first wave occurred in **September 2025**, not September 2024; Mini Shai-Hulud belongs to **April–May 2026**, not August 2026. The August 2026 campaign is **Here We Go Again**, discussed below. Follow the dates in the text rather than those in the timeline image.
+![Shai-Hulud campaign timeline](/posts/shai-hulud-campaign/timeline.png?v=2)
 
 ### 📍 The emergence of the Shai-Hulud worm — September 2025
 
-![The original Shai-Hulud worm in September 2025](/posts/shai-hulud-campaign/original-wave.png)
-
-*The “Sep 2024” label in this diagram should read “Sep 2025.”*
+![The original Shai-Hulud worm in September 2025](/posts/shai-hulud-campaign/original-wave.png?v=2)
 
 Shai-Hulud is a **self-propagating attack** discovered in the npm registry.
 
