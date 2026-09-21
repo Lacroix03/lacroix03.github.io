@@ -193,7 +193,7 @@ Shai-Hulud의 전파방식의 핵심은, 탈취한 credential을 **다음 공격
 
 최초 캠페인이 진정된 이후, 약 두달 뒤에 새로운 변종이 등장했습니다.
 
-연구자들은 이를 Shai-Hulud 2.0 또는 공격자가 사용한 문구를 따라 **“Sha1-hulud: The Second Coming”**이라고 불렀습니다.
+연구자들은 이를 Shai-Hulud 2.0 또는 공격자가 사용한 문구를 따라 <strong>“Sha1-hulud: The Second Coming”</strong>이라고 불렀습니다.
 
 해당 변종의 가장 큰 변화는 **악성코드의 실행 방식**과 **지속성, 은닉, 파괴 기능을 추가한 점**이었습니다.
 
@@ -208,7 +208,7 @@ setup_bun.js 는 먼저 시스템에 bun runtime이 존재하는지 확인하고
 
 #### 지속성 확보와 은닉, 그리고 파괴
 
-실제 악성 페이로드인 bun_environment.js 는 background process로 실행되었고, 탈취한 정보를 저장하기 위해 생성한 GitHub repository에 **“Sha1-hulud: The Second Coming.”**이라는 description을 남겼습니다.
+실제 악성 페이로드인 bun_environment.js 는 background process로 실행되었고, 탈취한 정보를 저장하기 위해 생성한 GitHub repository에 <strong>“Sha1-hulud: The Second Coming.”</strong>이라는 description을 남겼습니다.
 
 변종은 **GitHub Actions에 workflow를 추가**하여, Discussion 이벤트가 발생하면 자동 실행되도록 했습니다. 즉 악성 npm 패키지를 삭제하더라도 접근 경로가 유지되도록 하여 **지속성을 확보**하였습니다.
 
@@ -224,7 +224,7 @@ Second Coming은 최초 버전에서 **stealth, persistence, sabotage 기능을 
 
 Mini Shai-Hulud에선 **CI/CD pipeline 자체를 감염 경로**로 이용했다는 것이 주목할 부분인데, 공격자는 **CI cache poisoning**을 이용해 정상적인 release workflow에 악성코드를 주입하고, npm의 **OIDC 기반 publishing 과정**을 악용해 정상적인 배포자처럼 악성코드를 배포했습니다.
 
-공격자가 전파를 위해 생성한 GitHub repository에 **“A Mini Shai-Hulud has Appeared”**라는 문구를 사용하면서 Mini Shai-Hulud라는 이름이 붙게 되었습니다.
+공격자가 전파를 위해 생성한 GitHub repository에 <strong>“A Mini Shai-Hulud has Appeared”</strong>라는 문구를 사용하면서 Mini Shai-Hulud라는 이름이 붙게 되었습니다.
 
 Socket은 전체 Mini Shai-Hulud 캠페인의 규모가 **502개 package, 1,055개 version**에 달했으며 npm뿐만 아니라 일부 PyPI 및 Composer package에서도 관련 활동이 확인되었다고 보고했습니다.
 
@@ -248,7 +248,7 @@ setup.mjs 에선 시스템에 bun이 있는지 확인하고, 없다면 다운로
 
 악성 페이로드는 마찬가지로 local environment, CI/CD 환경, cloud, Kubernetes, Vault 등에서 credential을 수집한 후, npm token을 발견하면 해당 token으로 수정할 수 있는 모든 package를 찾아 자신의 setup.mjs와 math_init.js를 삽입한 뒤 patch version을 증가시켜 npm Registry에 다시 publish합니다.
 
-이 때 공격자가 생성한 GitHub repository에는 **“Shai-Hulud: Here We Go Again”**이라는 description이 사용되었습니다.
+이 때 공격자가 생성한 GitHub repository에는 <strong>“Shai-Hulud: Here We Go Again”</strong>이라는 description이 사용되었습니다.
 
 ---
 

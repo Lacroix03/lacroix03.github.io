@@ -174,7 +174,7 @@ After obtaining a valid npm token, the worm found other packages that the accoun
 
 About two months after the initial campaign subsided, another variant appeared.
 
-Researchers called it Shai-Hulud 2.0, or **“Sha1-hulud: The Second Coming”** after the phrase used by the attackers.
+Researchers called it Shai-Hulud 2.0, or <strong>“Sha1-hulud: The Second Coming”</strong> after the phrase used by the attackers.
 
 The major changes were its **execution mechanism** and the addition of **persistence, stealth, and destructive behavior**.
 
@@ -189,7 +189,7 @@ Where the original campaign used `postinstall`, this variant used `preinstall`. 
 
 #### Persistence, stealth, and destruction
 
-The main payload, `bun_environment.js`, ran as a background process. GitHub repositories created to hold stolen information carried the description **“Sha1-hulud: The Second Coming.”**
+The main payload, `bun_environment.js`, ran as a background process. GitHub repositories created to hold stolen information carried the description <strong>“Sha1-hulud: The Second Coming.”</strong>
 
 The variant added a **GitHub Actions workflow** that could execute in response to Discussion events. This provided **persistence**, allowing an access path to remain even after the malicious npm package was removed.
 
@@ -205,7 +205,7 @@ In 2026, attacks affected npm packages associated with the SAP development ecosy
 
 One notable aspect of Mini Shai-Hulud was its use of the **CI/CD pipeline itself as an infection path**. Attackers used **CI cache poisoning** to introduce malicious code into legitimate release workflows and abused **OIDC-based npm publishing** to distribute malicious code through an apparently legitimate publisher.
 
-The name came from the phrase **“A Mini Shai-Hulud has Appeared”**, which appeared in GitHub repositories created during propagation.
+The name came from the phrase <strong>“A Mini Shai-Hulud has Appeared”</strong>, which appeared in GitHub repositories created during propagation.
 
 Socket reported that the full Mini Shai-Hulud campaign encompassed **502 packages and 1,055 versions**, with related activity in PyPI and Composer as well as npm.
 
@@ -229,7 +229,7 @@ setup.mjs -> Bun runtime -> math_init.js
 
 The payload collected credentials from local environments, CI/CD systems, cloud services, Kubernetes, and Vault. If it found an npm token, it located packages that could be modified with that token, inserted its own `setup.mjs` and `math_init.js`, incremented the patch version, and published the infected packages back to the npm registry.
 
-GitHub repositories created during this campaign used the description **“Shai-Hulud: Here We Go Again”**.
+GitHub repositories created during this campaign used the description <strong>“Shai-Hulud: Here We Go Again”</strong>.
 
 ---
 
