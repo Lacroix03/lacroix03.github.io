@@ -7,7 +7,7 @@ category: "Security"
 lang: "en"
 urlSlug: "shai-hulud-diff-analysis"
 translationKey: "shai-hulud-diff-analysis"
-draft: true
+draft: false
 ---
 
 Hello! In the [previous post](/en/posts/shai-hulud-campaign/), I covered the broader Shai-Hulud campaign. This post follows actual package diffs from the original `@ctrl/tinycolor` sample through Second Coming's `@asyncapi/cli` and the Mini AntV case in `@antv/adjust`.

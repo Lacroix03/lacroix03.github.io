@@ -7,7 +7,7 @@ category: "Security"
 lang: "ko"
 urlSlug: "shai-hulud-diff-analysis"
 translationKey: "shai-hulud-diff-analysis"
-draft: true
+draft: false
 ---
 
 안녕하세요. [지난 글](/posts/shai-hulud-campaign/)에서는 Shai-Hulud 캠페인의 전체 흐름을 정리했습니다. 이번 글에서는 원본의 `@ctrl/tinycolor`를 시작으로 Second Coming의 `@asyncapi/cli`, Mini의 AntV 사례인 `@antv/adjust`까지, 실제 패키지 diff를 따라가며 살펴보겠습니다.
