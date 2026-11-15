@@ -3,6 +3,7 @@ title: "Shai-Hulud Deep Dive: From the Original to Second Coming and Mini"
 published: 2026-10-08
 description: "Comparing credential collection and exfiltration in original Shai-Hulud and later variants through release diffs for @ctrl/tinycolor, @asyncapi/cli, and @antv/adjust"
 tags: ["npm", "Supply Chain Security", "Shai-Hulud", "Malware Analysis", "CI/CD"]
+image: "/posts/shai-hulud-diff-analysis/cover.png"
 category: "Security"
 lang: "en"
 urlSlug: "shai-hulud-diff-analysis"

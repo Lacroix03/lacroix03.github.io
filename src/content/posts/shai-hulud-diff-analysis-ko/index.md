@@ -3,6 +3,7 @@ title: "Shai-Hulud 상세 분석: 원본부터 Second Coming과 Mini까지"
 published: 2026-10-08
 description: "@ctrl/tinycolor, @asyncapi/cli, @antv/adjust의 버전별 diff로 원본 Shai-Hulud와 후속 변종의 자격증명·secret 수집과 유출 경로를 비교하는 분석"
 tags: ["npm", "Supply Chain Security", "Shai-Hulud", "Malware Analysis", "CI/CD"]
+image: "/posts/shai-hulud-diff-analysis/cover.png"
 category: "Security"
 lang: "ko"
 urlSlug: "shai-hulud-diff-analysis"
